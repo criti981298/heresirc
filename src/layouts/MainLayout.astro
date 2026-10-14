@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+import '../styles/technology.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  giraffe?: boolean;
+}
+const { title = 'Diseño y desarrollo web', description = site.descripcion, giraffe = false } = Astro.props;
+const fullTitle = `${title} · ${site.nombre}`;
+---
+<!doctype html>
+<html lang="es" data-theme="sage-stone">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F6F5F0" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{fullTitle}</title>
+  </head>
+  <body class:list={[{ 'has-giraffe': giraffe }]}>
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido</a>
+    <Navbar />
+    <main id="contenido-principal"><slot /></main>
+    <Footer />
+    <script>
+      import '../scripts/global';
+    </script>
+  </body>
+</html>
+
+
+

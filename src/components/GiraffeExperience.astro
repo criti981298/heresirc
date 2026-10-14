@@ -1,0 +1,34 @@
+---
+import '../styles/giraffe.css';
+---
+<div class="giraffe-experience" data-giraffe-experience>
+  <div class="giraffe-rail" data-giraffe-rail aria-hidden="true"></div>
+  <div class="giraffe-render" aria-hidden="true">
+    <canvas id="giraffe-scene" class="giraffe-canvas" data-giraffe-canvas></canvas>
+    <div class="giraffe-fallback" data-giraffe-fallback hidden>
+      <div class="giraffe-fallback-neck"></div>
+      <svg class="giraffe-fallback-head" viewBox="0 0 260 330" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="giraffe-fallback-shade" x1="84" y1="0" x2="196" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#999"/><stop offset=".37" stop-color="#fff"/><stop offset="1" stop-color="#bcbcbc"/></linearGradient>
+        </defs>
+        <path d="M113 330C117 275 116 251 102 214L87 171C67 171 43 164 37 151C33 142 40 130 54 126L104 106L113 81L132 75L159 100L176 148L166 209C163 247 169 282 178 330H113Z" fill="url(#giraffe-fallback-shade)" stroke="#494949" stroke-width="1.5"/>
+        <path d="M126 84L121 47L129 40L140 79M151 90L151 50L160 46L166 105" fill="#f1f1f1" stroke="#444" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M119 43C113 34 116 26 124 27C135 28 137 36 130 44M155 48C150 39 153 32 161 33C170 34 171 42 165 48" fill="#171717"/>
+        <path d="M119 100C99 82 74 72 66 78C63 85 75 109 100 116L119 100ZM159 109C171 88 192 78 200 83C202 96 191 119 173 129L159 109Z" fill="#f5f5f5" stroke="#333" stroke-width="2"/>
+        <path d="M83 89L106 105L95 107Z M176 105L190 91L181 114Z" fill="#373737"/>
+        <path d="M109 122C106 110 120 103 132 112L129 136L113 142L109 122ZM139 149L154 132L166 151L159 175L142 174L139 149ZM110 180L130 168L139 190L123 211L113 200L110 180ZM126 231L148 215L157 240L143 263L124 250L126 231ZM133 285L154 271L168 297L157 316L134 309V285Z" fill="#232323"/>
+        <path d="M42 135C58 128 71 129 74 143C67 158 53 158 42 149" fill="#444"/>
+        <ellipse cx="122" cy="127" rx="5" ry="7" fill="#060606"/>
+        <ellipse cx="123" cy="125" rx="1.3" ry="2" fill="#fff"/>
+        <path d="M96 155C88 159 81 160 74 159" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <button class="giraffe-toggle" type="button" data-giraffe-toggle aria-pressed="false" aria-controls="giraffe-scene">
+    <span class="giraffe-toggle-icon" aria-hidden="true"><i></i><i></i></span>
+    <span data-giraffe-toggle-label data-giraffe-label>Pausar movimiento</span>
+  </button>
+</div>
+<script>
+  import '../scripts/giraffe-loader';
+</script>

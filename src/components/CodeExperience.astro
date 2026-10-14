@@ -1,0 +1,25 @@
+---
+const layers = [
+  { id: 'design', name: 'Diseño', code: 'const identidad = {\n  marca: "HERESIRC",\n  paleta: "Sage & Stone",\n  enfoque: "Tu proyecto"\n};\n\nexperiencia.aplicar(identidad);' },
+  { id: 'motion', name: 'Movimiento', code: 'const movimiento = {\n  profundidad: true,\n  seguirCursor: true,\n  transicion: "suave"\n};\n\nexperiencia.animar(movimiento);' },
+  { id: 'space', name: 'Espacio 3D', code: 'const escena = {\n  capas: ["idea", "diseño", "web"],\n  perspectiva: 1200,\n  interaccion: "contigo"\n};\n\nexperiencia.explorar(escena);' },
+];
+---
+<div class="code-scene hero-enter" data-code-scene data-mode="design">
+  <div class="code-depth-grid" aria-hidden="true"></div>
+  <div class="code-scene-stage" data-code-stage>
+    <figure class="hero-brand">
+      <div class="hero-brand-top"><span>HERESIRC</span><span>ESTUDIO DIGITAL / 2026</span></div>
+      <img class="hero-brand-logo" src="/brand/here-sirc-logo.png" alt="Logo de HERESIRC: jirafa tecnológica" width="1280" height="1280" fetchpriority="high" />
+      <figcaption><span>Una identidad propia.</span><span>Una perspectiva diferente.</span></figcaption>
+    </figure>
+    <div class="code-wireframe" aria-hidden="true"><div></div><div></div><div></div></div>
+    <section class="code-window" aria-label="Explora el código de la experiencia">
+      <div class="code-window-bar"><span>experiencia.js</span><span data-code-position>01 / DISEÑO</span></div>
+      <div class="code-controls" aria-label="Capas de la experiencia">{layers.map((layer, i) => <button type="button" data-code-mode={layer.id} aria-pressed={i === 0} aria-controls={`code-${layer.id}`}>{layer.name}</button>)}</div>
+      <div class="code-editor"><span class="code-line-numbers" aria-hidden="true">01<br/>02<br/>03<br/>04<br/>05<br/>06<br/>07</span><pre>{layers.map((layer, i) => <code id={`code-${layer.id}`} data-code-snippet={layer.id} hidden={i !== 0}>{layer.code}</code>)}</pre></div>
+      <p class="code-window-hint">Selecciona una capa y explora su profundidad.</p>
+    </section>
+  </div>
+</div>
+<script>import '../scripts/code-experience';</script>

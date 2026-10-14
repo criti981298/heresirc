@@ -1,0 +1,10 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { proyectos } from '../../data/proyectos';
+import type { Proyecto } from '../../data/proyectos';
+export function getStaticPaths() { return proyectos.map((proyecto) => ({ params: { slug: proyecto.slug }, props: { proyecto } })); }
+interface Props { proyecto: Proyecto; }
+const { proyecto } = Astro.props;
+---
+<MainLayout title={`Proyecto ${proyecto.nombre}`} description={proyecto.descripcion}><section class="inner-hero section-pad"><div class="container"><a class="back-link" href="/proyectos/"> Portafolio</a><p class="eyebrow">{proyecto.etiqueta} / {proyecto.sector}</p><h1>{proyecto.nombre}<em>.</em></h1><p>{proyecto.descripcion}</p><a class="button button-dark" href={proyecto.url} target="_blank" rel="noopener noreferrer">Visitar sitio publicado </a></div></section><section class="detail-section section-pad"><div class="container detail-grid"><div><p class="eyebrow">PROYECTO</p><h2>Una experiencia con intención.</h2><p>La estructura se basa en componentes reutilizables, contenido tipado y publicación automatizada, permitiendo evolucionar el sitio sin perder consistencia.</p></div><div><h3>Servicios y herramientas</h3><ul class="detail-list">{proyecto.servicios.map((servicio) => <li>{servicio}</li>)}</ul></div></div></section><ContactCTA/></MainLayout>

@@ -1,0 +1,17 @@
+---
+import type { Paquete } from '../data/paquetes';
+interface Props { paquete: Paquete; }
+const { paquete } = Astro.props;
+---
+<article class:list={['package-card', 'panel3d', { 'package-card-featured': paquete.destacado }]}>
+  <div class="package-card-inner panel3d__stage">
+    <div class="package-top"><span class="eyebrow">NIVEL {Number(paquete.numero)} / 5</span>{paquete.destacado && <span class="popular-label">PARA EMPRESAS</span>}</div>
+    <div class="package-heading"><h3>{paquete.nombre}</h3></div>
+    <p class="package-subtitle">{paquete.subtitulo}</p>
+    <p class="package-description">{paquete.descripcion}</p>
+    <div class="package-divider"></div>
+    <p class="package-includes-title">LO QUE INCLUYE</p>
+    <ul class="package-includes">{paquete.incluye.map((item) => <li>{item}</li>)}</ul>
+    <a class="package-link" href={`/paquetes/${paquete.slug}/`}>Conocer este nivel </a>
+  </div>
+</article>

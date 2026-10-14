@@ -1,0 +1,7 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import PackageCard from '../../components/PackageCard.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { paquetes } from '../../data/paquetes';
+---
+<MainLayout title="Niveles de páginas web" description="Descubre cinco niveles de páginas web: página básica, landing page, sitio corporativo, blog o portal y tienda en línea."><section class="inner-hero section-pad"><div class="container"><p class="eyebrow">SERVICIOS / HERESIRC</p><h1>Cinco niveles. <em>Tu siguiente paso.</em></h1><p>Del primer contacto a una tienda en línea: cinco tipos de web para distintos objetivos. Todos se diseñan a medida.</p></div></section><section class="packages-section section-pad"><div class="container"><div class="package-grid">{paquetes.map((paquete) => <PackageCard paquete={paquete}/>)}</div></div></section><ContactCTA/></MainLayout>

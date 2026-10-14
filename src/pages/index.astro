@@ -1,0 +1,27 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Hero from '../components/Hero.astro';
+import PackageCard from '../components/PackageCard.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import GiraffeExperience from '../components/GiraffeExperience.astro';
+import { paquetes } from '../data/paquetes';
+import { proyectos } from '../data/proyectos';
+---
+<MainLayout title="Estudio creativo de diseño web" giraffe>
+  <Hero />
+  <div class="marquee" aria-hidden="true"><div>DISEÑO WEB <span></span> EXPERIENCIAS DIGITALES <span></span> DESARROLLO CREATIVO <span></span> DISEÑO WEB <span></span> EXPERIENCIAS DIGITALES <span></span> DESARROLLO CREATIVO <span></span></div></div>
+  <GiraffeExperience />
+  <div class="giraffe-journey">
+  <section id="servicios" class="intro-section section-pad" aria-labelledby="intro-title">
+    <div class="container intro-grid"><div class="giraffe-intro-aside"><p class="eyebrow">01 / LO QUE HACEMOS</p><div class="giraffe-head-anchor" data-giraffe-anchor aria-hidden="true"></div></div><div class="giraffe-intro-copy"><p class="giraffe-intro-cue"> Una perspectiva diferente.</p><h2 id="intro-title" class="section-title">No hacemos páginas por hacer. Creamos <em>primeras impresiones.</em></h2><p class="section-desc">Una buena página web no solo se ve bien: comunica, conecta y facilita que tus visitantes den el siguiente paso. Así entendemos el diseño digital en HERESIRC.</p><div class="services-mini"><div><span>01.</span><h3>Diseño estratégico</h3><p>Identidad visual alineada con tu público.</p></div><div><span>02.</span><h3>Desarrollo a medida</h3><p>Arquitectura clara, rápida y preparada para crecer.</p></div><div><span>03.</span><h3>Interacción con intención</h3><p>Microanimaciones y profundidad, sin perder usabilidad.</p></div></div></div></div>
+  </section>
+  <section class="packages-section section-pad" id="paquetes" aria-labelledby="packages-heading">
+    <div class="container"><div class="section-head"><div><p class="eyebrow">02 / SERVICIOS A TU MEDIDA</p><h2 id="packages-heading" class="section-title">Cinco niveles para <em>tu próxima web.</em></h2></div><p class="section-head-note">Cinco niveles de páginas web.<br />Encuentra el que responde a tu objetivo.</p></div><div class="package-grid">{paquetes.map((paquete) => <PackageCard paquete={paquete} />)}</div><p class="packages-disclaimer">Cada nivel responde a una necesidad distinta. Adaptamos el alcance a tu proyecto.</p></div>
+  </section>
+  <section class="work-section section-pad" id="proyectos" aria-labelledby="work-heading"><div class="container"><div class="section-head"><div><p class="eyebrow">03 / TRABAJO SELECCIONADO</p><h2 class="section-title" id="work-heading">Diseñar es hacer que <em>se sienta.</em></h2></div><a href="/proyectos/" class="text-link">Ver proyecto </a></div>{proyectos.map((proyecto) => <a class="work-showcase" href={`/proyectos/${proyecto.slug}/`} aria-label={`Conocer el proyecto ${proyecto.nombre}`}><div class="work-visual"><span class="work-decoration one">P</span><span class="work-decoration two"></span><div class="work-preview"><span>UN ESPACIO PARA SER</span><strong>posonas<span>.</span>posonas</strong><small>COMUNIDAD / CULTURA / CONEXIÓN</small></div></div><div class="work-info"><div><span class="eyebrow">01 / {proyecto.sector}</span><h3>{proyecto.nombre}</h3><p>{proyecto.descripcion}</p></div><span class="work-arrow" aria-hidden="true"></span></div></a>)}</div></section>
+  <section class="process-section section-pad" id="proceso" aria-labelledby="process-heading"><div class="container process-grid"><div><p class="eyebrow">04 / NUESTRO PROCESO</p><h2 class="section-title" id="process-heading">De una idea a <em>algo real.</em></h2><p class="section-desc">Un proceso claro, colaborativo y sin complicaciones innecesarias.</p></div><div class="steps"><div><span>01</span><div><h3>Escuchamos</h3><p>Tu proyecto, tus objetivos y lo que quieres transmitir.</p></div></div><div><span>02</span><div><h3>Diseñamos</h3><p>Convertimos la estrategia en una propuesta visual única.</p></div></div><div><span>03</span><div><h3>Construimos</h3><p>Desarrollamos, probamos y afinamos cada detalle.</p></div></div><div><span>04</span><div><h3>Lanzamos</h3><p>Publicamos el sitio y verificamos que todo funcione.</p></div></div></div></div></section>
+  <ContactCTA />
+  </div>
+  <script>import '../scripts/home';</script>
+</MainLayout>
+

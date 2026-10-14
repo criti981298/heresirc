@@ -1,0 +1,6 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { proyectos } from '../../data/proyectos';
+---
+<MainLayout title="Proyectos" description="Explora trabajos de diseño editorial y desarrollo web de HERESIRC."><section class="inner-hero section-pad"><div class="container"><p class="eyebrow">PORTAFOLIO / HERESIRC</p><h1>Lo que hacemos <em>habla por sí solo.</em></h1><p>Proyectos documentados, con tecnología y decisiones de diseño al servicio de cada idea.</p></div></section><section class="work-section section-pad"><div class="container">{proyectos.map((p) => <a class="work-showcase" href={`/proyectos/${p.slug}/`}><div class="work-visual"><div class="work-preview"><span>UN ESPACIO PARA SER</span><strong>posonas<span>.</span>posonas</strong><small>COMUNIDAD / CULTURA / CONEXIÓN</small></div></div><div class="work-info"><div><span class="eyebrow">{p.etiqueta}</span><h2>{p.nombre}</h2><p>{p.descripcion}</p></div><span class="work-arrow"></span></div></a>)}</div></section><ContactCTA/></MainLayout>

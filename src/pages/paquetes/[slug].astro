@@ -1,0 +1,13 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { paquetes } from '../../data/paquetes';
+import type { Paquete } from '../../data/paquetes';
+export function getStaticPaths() { return paquetes.map((paquete) => ({ params: { slug: paquete.slug }, props: { paquete } })); }
+interface Props { paquete: Paquete; }
+const { paquete } = Astro.props;
+---
+<MainLayout title={`Nivel ${Number(paquete.numero)}: ${paquete.nombre}`} description={paquete.descripcion}>
+  <section class="inner-hero section-pad"><div class="container"><a class="back-link" href="/paquetes/"> Todos los niveles</a><p class="eyebrow">NIVEL {Number(paquete.numero)} DE 5 / HERESIRC</p><h1>{paquete.nombre}<em>.</em></h1><p>{paquete.descripcion}</p><a class="button button-dark" href="/contacto/">Solicitar propuesta </a></div></section>
+  <section class="detail-section section-pad"><div class="container detail-grid"><div><p class="eyebrow">PENSADO PARA</p><h2>{paquete.subtitulo}</h2><p>{paquete.idealPara}</p><p class="detail-caveat">Definimos las funciones y los entregables según las necesidades de tu proyecto.</p></div><div><h3>¿Qué puede incluir?</h3><ul class="detail-list">{paquete.incluye.map((item) => <li>{item}</li>)}</ul><h3>Entregables de referencia</h3><ul class="detail-list">{paquete.entregables.map((item) => <li>{item}</li>)}</ul></div></div></section><ContactCTA/>
+</MainLayout>
